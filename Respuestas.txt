@@ -1,0 +1,57 @@
+1. Modificar el mensaje del método pitar para la clase Moto sin alterar la clase Auto:
+Para lograrlo, es necesario sobrescribir el método pitar en la clase Moto. El código sería algo como:
+
+@Override
+public void pitar() {
+    System.out.println("Las motos no pitan");
+}
+
+2. Problema al agregar la clase Motoneta que hereda de Moto:
+No hay problemas evidentes. Sin embargo, podría ser necesario sobrescribir el método pitar si se desea que el mensaje sea específico, como por ejemplo: "Las motonetas no pitan".
+
+3. Sobrescribir el método arrancar en la clase Moto:
+Sí es posible sobrescribirlo. Solo es necesario anteponer @Override al método, y funcionará correctamente:
+
+@Override
+public void arrancar() {
+    System.out.println("Arrancando...");
+}
+
+4. Uso del método pitar en la línea 13 de la clase Moto:
+Esto es posible porque Moto hereda de Auto, y el método pitar está definido en esta última.
+
+5. Obtener el número de autos creados desde ObjTaller5H sin modificar el modificador de acceso de num_autos:
+Para hacerlo, se debe crear un método público en la clase Auto que retorne el valor de num_autos:
+
+public int getNumAutos() {
+    return num_autos;
+}
+
+6. Uso del método adelantar en la línea 7 de ObjTaller5H:
+No es posible utilizar este método porque tiene privacidad de paquete, lo que significa que solo es accesible desde clases en el mismo paquete. Si Moto pertenece a un paquete diferente, no podrá acceder a él, incluso siendo una subclase.
+
+7. Uso del método arrancar en la clase Bus aunque no esté definido en ella:
+Esto es posible porque Bus hereda de Auto, y el método arrancar está definido en esta última con un modificador de acceso que permite su herencia y uso.
+
+8. Uso del método pitar en la línea 9 de ObjTaller5H:
+En esta línea, el método pitar sí se puede utilizar, ya que es heredado por la clase Bus desde Auto. Al ejecutarlo, imprimirá: Piiiiii.
+
+9. Salida del método getVelocidad en la línea 10 de ObjTaller5H:
+Este método no imprime nada porque simplemente retorna un valor. Para mostrarlo en la consola, sería necesario usar System.out.println:
+
+System.out.println(bus.getVelocidad());
+
+10. Obtener la placa de las clases Moto y Bus, además de su modelo y capacidad:
+Se deben agregar métodos de acceso (getters) para estos atributos privados en sus respectivas clases:
+
+public String getPlaca() {
+    return placa;
+}
+
+public String getModelo() {
+    return modelo;
+}
+
+public int getCapacidad() {
+    return capacidad;
+}
